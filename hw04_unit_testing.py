@@ -63,11 +63,28 @@ class AvgElemsInListTest(unittest.TestCase):
 
 # ---- question 3 ------------------------------------------------------------
 
-# ---- 2.1 TODO: generates full name with provided first and last name ----
+# ---- 2.1 generate full name with provided first and last name ----
 
-# ---- 2.2 TODO: write 3 unit tests ----
+def gen_full_name(_first, _last):
+    return "{0} {1}".format((_first, "Jane/John") [len(str(_first).strip()) == 0], (_last, "Doe") [len(str(_last).strip()) == 0])
 
-# TODO: explain tests in word doc
+# ---- 2.2 write 3 unit tests ----
+
+class GenFullNameTest(unittest.TestCase):
+
+    def test_empty_string(self):
+        self.assertEqual(gen_full_name("", ""), "Jane/John Doe")
+        self.assertEqual(gen_full_name(" ", ""), "Jane/John Doe")
+        self.assertEqual(gen_full_name("", " "), "Jane/John Doe")
+        self.assertEqual(gen_full_name(" ", " "), "Jane/John Doe")
+
+    def test_correct_output(self):
+        self.assertEqual(gen_full_name("Brock", "Samson"), "Brock Samson")
+
+    def test_nonstandard_input(self):
+        self.assertEqual(gen_full_name(1101, 1101), "1101 1101")
+        self.assertEqual(gen_full_name(3564.45546, 87965.25554), "3564.45546 87965.25554")
+        self.assertEqual(gen_full_name(True, False), "True False")
 
 
 if __name__ == '__main__':
