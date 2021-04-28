@@ -29,20 +29,36 @@ class CubeVolumeTests(unittest.TestCase):
     def test_type(self):
         with self.assertRaises(TypeError):
             cube_volume("42")
-        with self.assertRaises(TypeError):
-            cube_volume(False)
 
 
 # ---- question 2 ------------------------------------------------------------
 
-# ---- 2.1 TODO: calculate average of elements in a list ----
+# ---- 2.1 calculate average of elements in a list ----
 
-# ---- 2.2 TODO: write 3 unit tests ----
-# ckecking empty
-# divide by zero
-# ...
+def avg_elems_in_list(_list):
+    return sum(_list) / (len(_list), 1) [len(_list) == 0] 
 
-# TODO: explain tests in word doc
+# ---- 2.2 write 3 unit tests ----
+
+class AvgElemsInListTest(unittest.TestCase):
+    
+    def test_list_empty(self):
+        self.assertEqual(avg_elems_in_list([]), 0)
+
+    def test_correct_values(self):
+        self.assertEqual(avg_elems_in_list([1, 1, 1, 1]), 1)
+        self.assertEqual(avg_elems_in_list([6, 10, 42, 1]), 14.75)
+        self.assertEqual(avg_elems_in_list([6, 10, 42, True]), 14.75)
+
+    def test_type(self):
+        with self.assertRaises(TypeError):
+            avg_elems_in_list([6, "10", 42, True])
+        with self.assertRaises(TypeError):
+            avg_elems_in_list(42)
+        with self.assertRaises(TypeError):
+            avg_elems_in_list("hello")
+        with self.assertRaises(TypeError):
+            avg_elems_in_list(False)
 
 
 # ---- question 3 ------------------------------------------------------------
