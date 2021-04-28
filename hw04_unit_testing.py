@@ -2,6 +2,9 @@
 # casey nord
 # spring 2021
 
+# NOTE: this program is designed to run with python3
+#       running with python2 may produce unexpected output
+
 import unittest
 
 
